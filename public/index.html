@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hilton Reservation System</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>Hilton Reservation System</h1>
+        <div class="user-info">
+          <span id="userText">Not signed in</span>
+          <span id="userContact" class="hidden"></span>
+          <button id="logoutBtn" class="hidden">Sign out</button>
+        </div>
+      </header>
+
+      <p id="message" class="message hidden"></p>
+
+      <section id="authSection" class="card">
+        <h2>Account</h2>
+        <div class="grid">
+          <input id="registerName" placeholder="Name" />
+          <input id="registerEmail" type="email" placeholder="Email" />
+          <input
+            id="registerPhone"
+            type="tel"
+            inputmode="numeric"
+            pattern="[0-9]{6,20}"
+            title="Use digits only, 6-20 characters"
+            placeholder="Phone"
+          />
+          <input id="registerPassword" type="password" placeholder="Password" />
+          <select id="registerRole">
+            <option value="guest">guest</option>
+            <option value="employee">employee</option>
+          </select>
+        </div>
+        <button id="registerBtn">Register</button>
+
+        <div class="grid">
+          <input id="loginEmail" type="email" placeholder="Email" />
+          <input id="loginPassword" type="password" placeholder="Password" />
+        </div>
+        <button id="loginBtn">Sign in</button>
+      </section>
+
+      <section id="guestSection" class="card hidden">
+        <h2 id="guestTitle">Guest Reservation</h2>
+        <p class="hint">
+          Reservation date: the dining date. Arrival time: your arrival time (24-hour
+          clock).
+        </p>
+        <div class="grid">
+          <div id="guestIdentityFields" class="grid-inline">
+            <input id="guestName" placeholder="Name" required />
+            <input
+              id="guestPhone"
+              type="tel"
+              inputmode="numeric"
+              pattern="[0-9]{6,20}"
+              title="Use digits only, 6-20 characters"
+              placeholder="Phone"
+              required
+            />
+            <input id="guestEmail" type="email" placeholder="Email" required />
+          </div>
+          <input id="arrivalDate" type="date" placeholder="Reservation date" required />
+          <input id="arrivalTime" type="time" placeholder="Arrival time" required />
+          <select id="mealPeriod">
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+          </select>
+          <input
+            id="tableSize"
+            type="number"
+            min="1"
+            max="10"
+            placeholder="Party size (e.g. 2)"
+            required
+          />
+        </div>
+        <button id="createReservationBtn">Submit reservation</button>
+
+        <div id="guestManageSection" class="hidden">
+          <h3 class="section-title">My reservations</h3>
+          <button id="loadMyReservationsBtn">Load my reservations</button>
+          <div id="guestReservationList" class="list"></div>
+        </div>
+      </section>
+
+      <section id="employeeSection" class="card hidden">
+        <h2>Employee Dashboard</h2>
+        <div class="grid">
+          <input id="filterDate" type="date" placeholder="Filter date (YYYY-MM-DD)" />
+          <select id="filterStatus">
+            <option value="">All statuses</option>
+            <option value="Requested">Requested</option>
+            <option value="Approved">Approved</option>
+            <option value="Cancelled">Cancelled</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+        <button id="loadReservationsBtn">Load reservations</button>
+
+        <div id="reservationList" class="list"></div>
+      </section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
