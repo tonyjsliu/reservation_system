@@ -1,9 +1,9 @@
 # Hilton Reservation System
 
-本项目实现了面试题要求的在线餐厅订位系统，Node.js 后端同时提供静态页面。
+本项目实现了在线餐厅订位系统，Node.js 后端同时提供静态页面。
 
 ## 技术选型
-- 后端：Node.js + TypeScript + Express + Apollo Server + MongoDB(Mongoose)
+- 后端：Node.js + TypeScript + Express + Apollo Server(Graphql) + MongoDB(Mongoose)
 - 测试：Jest（后端）
 
 ## 项目结构
